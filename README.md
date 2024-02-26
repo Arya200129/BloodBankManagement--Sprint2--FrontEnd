@@ -1,6 +1,7 @@
 # BloodBankManagement--Sprint2--FrontEnd
 This is Angular Frontend of BloodBankManagement--Sprint2 project.
 This project was generated with Angular CLI version 17.1.3.
+You can find the backend SpringBoot work of BloodBankManagement here: [Github Link](https://github.com/Arya200129/BloodBankManagement--Sprint2)
 
 ## Development server
 Run ng serve for a dev server. Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
