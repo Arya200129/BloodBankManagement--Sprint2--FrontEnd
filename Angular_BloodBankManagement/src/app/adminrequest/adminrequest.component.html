@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-default p-2">
+    <h5 style="color:rgb(255, 89, 0); font-weight: bolder; font-family: cursive;">Blood Bank</h5>
+    <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotoAhome()" class="nav-link">ADMIN HOME</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotohome()" class="nav-link">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <h1 class="text-center" style="color: cadetblue;">All Requests:</h1>
+    <hr>
+    <div class="row  mt-3 pt-3">
+        <div class="col-md-4 d-flex align-items-stretch" *ngFor="let i of requests">
+            <div class="card mb-3" style="width: 100%;">
+                <div class="card-body">
+                    <p class="card-title"></p>
+                    <p class="card-subtitle text-muted"><span> Request Id: </span>{{i.requestId}}</p>
+                    <p class="card-text text-muted" style="text-align: left !important;">
+                        <span> Requested Blood Group: </span>  {{i.requestedBloodGroup}}<br>
+                        <span> Request Date: </span>  {{i.requestDate}}<br>
+                        <span> Blood Bank Name / Donor Name: </span> <br>&nbsp;&nbsp; {{i.blookBankName_donorName}}<br>
+                        <label for="status"> <span> Status: </span> </label> &nbsp;
+                        <input type="text" name="status" id="status" [(ngModel)]="i.status"/>
+                    </p>
+                    <a [routerLink]="" (click)="setStatus(i.requestId, i.status)" class="btn btn-primary">Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

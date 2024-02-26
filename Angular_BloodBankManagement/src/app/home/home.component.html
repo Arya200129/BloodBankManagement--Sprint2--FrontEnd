@@ -1,0 +1,208 @@
+<nav class="navbar navbar-expand-sm navbar-dark p-3">
+    <h5 style="color:whitesmoke; font-weight: bolder; font-family: cursive;">Blood Bank</h5>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link active">HOME</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotoReq()" class="nav-link">REQUEST STATUS</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotobb()" class="nav-link">BLOOD BANK DIRECTORY</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotodonor()" class="nav-link">DONOR DIRECTORY</a>
+            </li>
+
+            <li class="nav-item" *ngIf="isLoggedIn()">
+                <a [routerLink]="" (click)="logout()" class="nav-link">LOGOUT</a>
+            </li>
+
+            <li class="nav-item" *ngIf="!isLoggedIn()">
+                <a [routerLink]="" (click)="login()" class="nav-link">LOGIN</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a [routerLink]="" (click)="gotohome()" class="nav-link">LOGOUT</a>
+            </li> -->
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container-fluid">
+
+        <section>
+            <!--carousel images-->
+            <div id="banners" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#banners" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#banners" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#banners" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#banners" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.primedeq.com/blog/wp-content/uploads/2020/01/blood-bank.jpg" width="100%" height="600px" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.acgil.com/images/blood-bank.jpg" width="100%"
+                            height="600px" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95ksaxhFbli_GNIDSqaV6eU_kjYdFtcw5hA&usqp=CAU"
+                            width="100%" height="600px" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://acucalservices.com/images/slider1.jpg" width="100%" height="600px" />
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#banners" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#banners" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div><br>
+        </section>
+
+        <section>
+            <div class="container mt-3 ">
+                <div class="row mt-3" style="display: flex; justify-content: space-around;">
+                    <h2 class="text-center text-danger mt-2">LEARN ABOUT DONATION</h2><br>
+                    <div class="col-md-4 justify-content mt-2">
+                        <img src="https://www.eraktkosh.in/BLDAHIMS/bloodbank/transactions/assets/webp/donationFact.webp"
+                            width="500px"><br>
+                        <p style="font-size: 1.3rem !important; font-weight: 300;">After donating blood, the body works
+                            to replenish the blood loss. This stimulates the
+                            production of new blood cells and in turn, helps in maintaining good health.</p>
+                        <button class="btn btn-danger">Donate Now</button>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <table class="table table-striped mt-2 rounded-3">
+                            <thead class="text-center">
+                                <tr>
+                                    <th colspan="3" class="bg-danger text-white">Compatible Blood Type Donors</th>
+                                </tr>
+                                <tr>
+                                    <th>Blood Type</th>
+                                    <th>Donate Blood To</th>
+                                    <th>Receive Blood From</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center p-2">
+                                <tr>
+                                    <td>A+</td>
+                                    <td>A+ AB+</td>
+                                    <td>A+ A- O+ O-</td>
+                                </tr>
+                                <tr>
+                                    <td>O+</td>
+                                    <td>O+ A+ B+ AB+</td>
+                                    <td>O+ O-</td>
+                                </tr>
+                                <tr>
+                                    <td>B+</td>
+                                    <td>B+ AB+</td>
+                                    <td>B+ B- O+ O-</td>
+                                </tr>
+                                <tr>
+                                    <td>AB+</td>
+                                    <td>AB+</td>
+                                    <td>Everyone</td>
+                                </tr>
+                                <tr>
+                                    <td>A-</td>
+                                    <td>A+ A- AB+ AB-</td>
+                                    <td>A- O-</td>
+                                </tr>
+                                <tr>
+                                    <td>O-</td>
+                                    <td>Everyone</td>
+                                    <td>O-</td>
+                                </tr>
+                                <tr>
+                                    <td>B-</td>
+                                    <td>B+ B- AB+ AB-</td>
+                                    <td>B- O-</td>
+                                </tr>
+                                <tr>
+                                    <td>AB-</td>
+                                    <td>AB+ AB-</td>
+                                    <td>AB- A- B- O-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div><br>
+        </section>
+        <section>
+            <div class="container mt-3 bg-light p-2">
+                <h2 class="text-center text-danger mt-2 p-2">TYPES OF DONATION</h2>
+                <div class="p-2">
+                    <p class="text-center">The average human body contains about five liters of blood, which is made of
+                        several cellular and non-cellular components such as Red blood cell, Platelet, and Plasma.</p>
+                    <p class="text-center">Each type of component has its unique properties and can be used for
+                        different
+                        indications. The donated blood is separated into these components by the blood centre and one
+                        donated unit can save upto four lives depending on the number of components separated from your
+                        blood.</p>
+                </div>
+            </div>
+
+            <div class="container mt-3 p-3">
+                <h3 class="text-center text-danger p-2">Packed Red Blood cells</h3>
+                <div class="container m-3" style="color: gray;">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h4>What is it?</h4>
+                            <p>Blood Collected straight from the donor into a blood bag and mixed with an anticoagulant
+                                is called as whole blood. This collected whole blood is then centrifuged and red cell,
+                                platelets and plasma are separated. The separated Red cells are mixed with a
+                                preservative to be called as packed red blood cells.</p>
+
+                            <h4>Who can donate?</h4>
+                            <p>You need to be 18-65 years old, weight 45kg or more and be fit and healthy.</p>
+                        </div>
+                        <div class="col-sm">
+                            <h4>User For?</h4>
+                            <p>Correction of severe anemia in a number of conditions and blood loss in case of child
+                                birth, surgery or trauma settings.</p>
+
+                            <h4>Lasts For?</h4>
+                            <p>Red cells can be stored for 42 days at 2-6 degree celsius.</p>
+                        </div>
+                        <div class="col-sm">
+                            <h4>How long does it take to donate?</h4>
+                            <p>15-30 minutes to donate.including the pre-donation check-up.</p>
+
+                            <h4>How often can I donate?</h4>
+                            <p>Male donors can donate again after 90 days and female donors can donate again after 120
+                                days.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+<footer class="bg-light mt-2 p-3">
+    <div class="container">
+        <h5 class="text-center text-muted">Copyright © SHOPDISTRICT PRIVATE LIMITED. All Rights Reserved. | Design &
+            Developed By Rise Business</h5>
+    </div>
+</footer>

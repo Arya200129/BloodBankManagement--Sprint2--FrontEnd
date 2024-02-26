@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-sm navbar-default bg-default p-3">
+    <h5 style="color:rgb(255, 89, 0); font-weight: bolder; font-family: cursive;">Blood Bank</h5>
+    <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotohome()" class="btn btn-danger">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container-fluid m-3">
+        <section>
+            
+            <div class="container" style="width: 1000px;">
+                <h1 class="text-center bg-light mt-5" style="color: darkcyan;">Welcome Admin!</h1>
+                <div class="card-group">
+
+                    <div class="card text-center m-5" style="width:500px">
+                        <img src="/assets/bloodbank.png"
+                            class="card-img-top mx-auto d-block pt-2" style="width:70%">
+                        <div class="card-body">
+                            <h3 class="card-title p-2">MANAGE BLOOD BANK</h3>
+                            <a [routerLink]="" (click)="gotoAbb()" class="btn btn-danger" >Go to Blood Banks</a>
+                        </div>
+                    </div>
+
+                    <div class="card text-center m-5" style="width:500px">
+                        <img src="/assets/bloodIcon.jpg"
+                            class="card-img-top mx-auto d-block pt-2" style="width:70%">
+                        <div class="card-body ">
+                            <h3 class="card-title p-2">MANAGE DONORS</h3>
+                            <a [routerLink]="" (click)="gotoAdonor()" class="btn btn-danger">Go to Donors</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-group">
+                    <div class="card text-center m-5" style="width:500px">
+                        <img src="/assets/bookings.jpg"
+                        class="card-img-top mx-auto d-block pt-2" style="width:100%">
+                        <div class="card-body">
+                            <h3 class="card-title p-2">MANAGE REQUESTS</h3>
+                            <a [routerLink]="" (click)="gotoReq()" class="btn btn-danger">Go to Request</a>
+                        </div>
+                    </div>
+
+                    <div class="card text-center m-5" style="width:500px">
+                        <img src="/assets/user.jpg"
+                        class="card-img-top mx-auto d-block pt-2" style="width:70%">
+                        <div class="card-body">
+                            <h3 class="card-title p-2">MANAGE USERS</h3>
+                            <a [routerLink]="" (click)="gotoUser()" class="btn btn-danger">Go to Users</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="bg-light mt-2 p-3">
+    <div class="container">
+        <h5 class="text-center text-muted">Copyright © SHOPDISTRICT PRIVATE LIMITED. All Rights Reserved. | Design &
+            Developed By Rise Business</h5>
+    </div>
+</footer>

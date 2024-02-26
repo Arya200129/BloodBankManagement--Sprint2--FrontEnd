@@ -1,0 +1,46 @@
+.navbar{
+    background-color: darkred;
+}
+.nav-link{
+    font-weight:bold;
+}
+/*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}*/
+
+/*form{
+    width: 24%;
+    background-color: lavender;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 150px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .50);
+}
+
+.btn-primary{
+    border-radius: 50px;
+}
+
+.abc{
+    color: rgba(0, 0, 0, .87);
+    border-bottom-color: rgba(0, 0, 0, .42);
+    box-shadow: none !important;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 4px 4px 0 0;
+}
+h4{
+    font-size: 2rem !important;
+    font-weight: 700;
+}
+.form-label{
+    font-family: 800 !important;
+}*/
+/* 
+@media only screen and (max-width:800px){
+    form{
+        width: 100% !important;
+    }
+} */

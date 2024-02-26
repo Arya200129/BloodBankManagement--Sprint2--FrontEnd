@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-sm navbar-default p-2">
+    <h5 style="color:rgb(255, 89, 0); font-weight: bolder; font-family: cursive;">Blood Bank</h5>
+    <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotoAhome()" class="nav-link">ADMIN HOME</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotohome()" class="nav-link">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid p-3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Donor Name</th>
+                <th>Blood Group</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="form-control" type="number" [(ngModel)]="model1.donorId"/></td>
+                <td><input class="form-control" type="text" [(ngModel)]="model1.donorName"/></td>
+                <td><input class="form-control" type="text" [(ngModel)]="model1.donorBloodGroup"/></td>
+                <td><input class="form-control" type="number" [(ngModel)]="model1.donorContact"/></td>
+                <td><button class="btn btn-primary form-control" type="submit" (click)="create()">
+                    Add</button></td>
+            </tr><br>
+        </tbody>
+    </table>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Donor Name</th>
+                <th>Blood Group</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of donors">
+                <td>{{i.donorId}}</td>
+                <td><input class="form-control" type="text" [(ngModel)]="i.donorName"/></td>
+                <td><input class="form-control" type="text" [(ngModel)]="i.donorBloodGroup"/></td>
+                <td><input class="form-control" type="number" [(ngModel)]="i.donorContact"/></td>
+                <td><button class="btn btn-secondary form-control" type="submit" (click)="update(i.donorId,i.donorName,i.donorBloodGroup,i.donorContact)">
+                    Update</button></td>
+                <td><button class="btn btn-danger form-control" type="submit" (click)="delete(i.donorId)">
+                    Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <div class="container-fluid">
+    <div class="card-group">
+        <div class="card" style="width: 18rem;" *ngFor="let i of donors">
+            <div class="card-body">
+                <h3 class="card-title text-center">Name: {{i.donorName}}</h3>
+                <p class="card-text">
+                    Id: {{i.donorId}}<br>
+                    Donor Name: {{i.donorName}}<br>
+                    Blood Group: {{i.donorBloodGroup}}<br>
+                    Contact: {{i.donorContact}}<br>
+                </p>
+                <a href="#" class="btn btn-primary" (click)="delete(i.donorId)">Delete</a>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-sm navbar-dark p-3">
+    <h5 style="color:whitesmoke; font-weight: bolder; font-family: cursive;">Blood Bank</h5>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotohomepage()" class="nav-link">HOME</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active">REQUEST STATUS</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotobb()" class="nav-link">BLOOD BANK DIRECTORY</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotodonor()" class="nav-link">DONOR DIRECTORY</a>
+            </li>
+
+            <li class="nav-item" *ngIf="isLoggedIn()">
+                <a [routerLink]="" (click)="logout()" class="nav-link">LOGOUT</a>
+            </li>
+
+            <li class="nav-item" *ngIf="!isLoggedIn()">
+                <a [routerLink]="" (click)="login()" class="nav-link">LOGIN</a>
+            </li>
+
+            <!-- <li class="nav-item">
+                <a [routerLink]="" (click)="gotohome()" class="nav-link">LOGOUT</a>
+            </li> -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <h1 class="text-center" style="color: teal;">All Requests:</h1>
+    <hr>
+    <div class="row  mt-3 pt-3">
+        <!-- Check if requests array is empty -->
+        <div *ngIf="!isLoggedIn()"  class="col-md-12 text-center text-muted">
+            <h4 style="font-weight: normal;">*Please first Login To display any requests*</h4>
+        </div>
+        <div *ngIf="requests.length === 0" class="col-md-12 text-center text-muted">
+            <h4 style="font-weight: normal;">*No Requests Added Yet*</h4>
+        </div>
+        <!-- Display requests if array is not empty -->
+        <div class="col-md-6 d-flex align-items-stretch" *ngFor="let i of requests">
+            <div class="card mb-3" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <h3 class="card-subtitle mb-2 " [style.color]="i.status === 'accepted' ? 'green' : (i.status === 'rejected' ? 'red' : 'blue')">Status: {{i.status}}</h3>
+                    <h5 class="card-text text-muted" style="text-align: left !important;">
+                        Id: <span>{{i.requestId}}</span><br>
+                        Requested Blood Group: <span>{{i.requestedBloodGroup}}</span><br>
+                        Request Date: <span>{{i.requestDate}}</span><br>
+                        Blood Bank Name / Donor Name: <span>{{i.blookBankName_donorName}}</span><br>
+                    </h5>
+                    <a [routerLink]="" (click)="delete(i.requestId)" class="btn btn-danger al">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-sm navbar-dark p-3">
+    <h5 style="color:whitesmoke; font-weight: bolder; font-family: cursive;">Blood Bank</h5>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotohomepage()" class="nav-link">HOME</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotoReq()" class="nav-link">REQUEST STATUS</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active">BLOOD BANK DIRECTORY</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotodonor()" class="nav-link">DONOR DIRECTORY</a>
+            </li>
+
+            <li class="nav-item" *ngIf="isLoggedIn()">
+                <a [routerLink]="" (click)="logout()" class="nav-link">LOGOUT</a>
+            </li>
+
+            <li class="nav-item" *ngIf="!isLoggedIn()">
+                <a [routerLink]="" (click)="login()" class="nav-link">LOGIN</a>
+            </li>
+
+            <!-- <li class="nav-item">
+                <a [routerLink]="" (click)="gotohome()" class="nav-link">LOGOUT</a>
+            </li> -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container" *ngIf="isVisible">
+    <form class="mx-auto bg-light p-5" style="width: 600px;">
+        <h1 class="text-primary " style="font-size: 2rem !important; font-weight: 700;">Add Request</h1>
+        <div class="mb-1 mt-2">
+            <label for="bldgrp" class="form-label">Requested Blood Group:</label>
+            <input type="text" name="bldgrp" id="bldgrp" class="form-control" [(ngModel)]="model.requestedBloodGroup"/><br>
+        </div>
+
+        <div class="mb-1">
+            <label for="date" class="form-label">Date:</label>
+            <input type="date" class="form-control" name="date" id="date" [(ngModel)]="model.requestDate"/><br>
+        </div>
+
+        <div class="mb-1">
+            <label for="bbname" class="form-label">To Blood Bank:</label>
+            <input type="text" class="form-control" name="bbname" id="bbname" [(ngModel)]="model.blookBankName_donorName"/><br>
+        </div>
+
+        <button class="btn btn-primary me-3" type="submit" (click)="sendRequest()">Send Request</button>
+        <button class="btn btn-secondary" type="submit" (click)="cancelRequest()">Cancel</button>
+
+    </form>
+</div>
+
+
+<div class="container-fluid p-3">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Blood Bank Name</th>
+                <th>Locationn</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of bloodbanks">
+                <td>{{i.bloodBankId}}</td>
+                <td>{{i.bloodBankName}}</td>
+                <td>{{i.bloodBankLocation}}</td>
+                <td>{{i.bloodBankContact}}</td>
+                <td>{{i.addr}}</td>
+                <td><button class="btn btn-warning" (click)="goToAddRequest(i.bloodBankName)"><i-bs name="plus-lg" ></i-bs> Request</button></td>
+                <!--(click)="selectBloodBank(i.bloodBankId,i.bloodBankName,i.bloodBankLocation,i.bloodBankContact,i.addr)"-->
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-default p-2">
+    <h5 style="color:rgb(255, 89, 0); font-weight: bolder; font-family: cursive;">Blood Bank</h5>
+    <div id="collapsibleNavbar" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotoAhome()" class="nav-link">ADMIN HOME</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="" (click)="gotohome()" class="nav-link">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <h1 class="text-center" style="color: teal;">User Management:</h1>
+    <hr>
+    <div class="row  mt-3 pt-3">
+        <div *ngFor="let user of users" class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.userFirstName }} {{ user.userLastName }}</h5>
+                    <p class="card-text">Contact: {{ user.userContact }}</p>
+                    <p class="card-text">Email: {{ user.userEmail }}</p>
+                    <p class="card-text">Address: {{ user.addr }}</p>
+                    <button (click)="delete(user.userId)" class="btn btn-danger">Delete User</button>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h5>User's Requests:</h5>
+                <ul>
+                    <li *ngFor="let request of user.bloodRequestList">
+                        Blood Group: {{ request.requestedBloodGroup }}, Status: {{ request.status }}, Date: {{ request.requestDate }}, Blood Bank/Donor: {{ request.blookBankName_donorName }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
