@@ -1,5 +1,5 @@
 # BloodBankManagement--Sprint2--FrontEnd
-This is Angular Frontend of BloodBankManagement--Sprint2 project
+This is Angular Frontend of BloodBankManagement--Sprint2 project.
 This project was generated with Angular CLI version 17.1.3.
 
 ## Development server
